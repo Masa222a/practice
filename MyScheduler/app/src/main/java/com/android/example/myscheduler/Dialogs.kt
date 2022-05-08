@@ -11,11 +11,12 @@ import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
 import java.util.*
 
-class ConfirmDialog(private val message: String,
-              private val okLabel: String,
-              private val okSelected: () -> Unit,
-              private val cancelLabel: String,
-              private val cancelSelected: () -> Unit)
+class ConfirmDialog(
+    private val message: String,
+    private val okLabel: String,
+    private val okSelected: () -> Unit,
+    private val cancelLabel: String,
+    private val cancelSelected: () -> Unit)
     : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
