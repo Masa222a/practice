@@ -7,10 +7,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.android.example.myscheduler.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private var binding: ActivityMainBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        this.binding = binding
         setContentView(binding.root)
         setSupportActionBar(findViewById(R.id.toolbar))
 
@@ -26,6 +27,6 @@ class MainActivity : AppCompatActivity() {
             = findNavController(R.id.nav_host_fragment).navigateUp()
 
     fun setFabVisible(visibility: Int) {
-        binding.fab.visibility = visibility
+        binding?.fab?.visibility = visibility
     }
 }
