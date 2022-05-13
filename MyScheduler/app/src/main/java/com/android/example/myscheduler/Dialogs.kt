@@ -1,13 +1,12 @@
 package com.android.example.myscheduler
 
-import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.app.DatePickerDialog.*
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.TimePicker
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import java.util.*
 
@@ -24,7 +23,7 @@ class ConfirmDialog(
         builder.setPositiveButton(okLabel) { dialog, which ->
             okSelected()
         }
-        builder.setPositiveButton(cancelLabel) { dialog, which ->
+        builder.setNegativeButton(cancelLabel) { dialog, which ->
             cancelSelected()
         }
         return builder.create()
@@ -32,7 +31,7 @@ class ConfirmDialog(
 }
 
 class DateDialog(private val onSelected: (String) -> Unit) :
-    DialogFragment(), OnDateSetListener {
+    DialogFragment(), DatePickerDialog.OnDateSetListener {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
